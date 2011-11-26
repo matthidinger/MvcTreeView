@@ -6,12 +6,7 @@ namespace MvcTreeView.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult FromDatabase()
-        {
-            return View();
-        }
-
-        public ActionResult FromMemory()
+        public ActionResult Index()
         {
             var locations = new List<Location>
                                 {
