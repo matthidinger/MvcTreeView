@@ -2,11 +2,11 @@
 
 namespace MvcTreeView.Models
 {
-    public class Location
+    public class TreeViewLocation
     {
-        public Location()
+        public TreeViewLocation()
         {
-            ChildLocations = new HashSet<Location>();
+            ChildLocations = new HashSet<TreeViewLocation>();
         }
 
         public int Id { get; set; }
@@ -14,6 +14,6 @@ namespace MvcTreeView.Models
 
         public virtual int? ParentLocationId { get; set; }
         
-        public virtual ICollection<Location> ChildLocations { get; set; }
+        public virtual ICollection<TreeViewLocation> ChildLocations { get; set; }
     }
 }

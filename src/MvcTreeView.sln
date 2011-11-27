@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{C91D6985-B852-41F7-9830-ED623DD66926}"
+	ProjectSection(SolutionItems) = preProject
+		..\nuget\MvcTreeView.nuspec = ..\nuget\MvcTreeView.nuspec
+		..\nuget\MvcTreeView.Sample.nuspec = ..\nuget\MvcTreeView.Sample.nuspec
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcTreeView", "MvcTreeView\MvcTreeView.csproj", "{BDC028BF-59F7-499A-AAB3-7F116C15303E}"
 EndProject
 Global

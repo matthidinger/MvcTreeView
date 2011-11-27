@@ -59,14 +59,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomeController.cs" />
+    <None Include="Controllers\TreeViewController.cs.pp" />
+    <Compile Include="Controllers\TreeViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <None Include="Helpers\TreeView.cs.pp" />
     <Compile Include="Helpers\TreeView.cs" />
-    <Compile Include="Helpers\HtmlHelper.cs" />
-    <Compile Include="Models\Location.cs" />
+    <None Include="Models\TreeViewLocation.cs.pp" />
+    <Compile Include="Models\TreeViewLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Views\TreeView\Index.cshtml.pp" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -74,25 +77,6 @@
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
-    <Content Include="Scripts\themes\apple\bg.jpg" />
-    <Content Include="Scripts\themes\apple\d.png" />
-    <Content Include="Scripts\themes\apple\dot_for_ie.gif" />
-    <Content Include="Scripts\themes\apple\style.css" />
-    <Content Include="Scripts\themes\apple\throbber.gif" />
-    <Content Include="Scripts\themes\classic\d.gif" />
-    <Content Include="Scripts\themes\classic\d.png" />
-    <Content Include="Scripts\themes\classic\dot_for_ie.gif" />
-    <Content Include="Scripts\themes\classic\style.css" />
-    <Content Include="Scripts\themes\classic\throbber.gif" />
-    <Content Include="Scripts\themes\default-rtl\d.gif" />
-    <Content Include="Scripts\themes\default-rtl\d.png" />
-    <Content Include="Scripts\themes\default-rtl\dots.gif" />
-    <Content Include="Scripts\themes\default-rtl\style.css" />
-    <Content Include="Scripts\themes\default-rtl\throbber.gif" />
-    <Content Include="Scripts\themes\default\d.gif" />
-    <Content Include="Scripts\themes\default\d.png" />
-    <Content Include="Scripts\themes\default\style.css" />
-    <Content Include="Scripts\themes\default\throbber.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -111,15 +95,12 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TreeView\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,9 +1,6 @@
-﻿@model List<MvcTreeView.Models.Location>
+﻿@using $rootnamespace$.Helpers
+@model List<$rootnamespace$.Models.TreeViewLocation>
 
-@{
-    ViewBag.Title = "TreeView";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
 <h2>TreeView</h2>
 
