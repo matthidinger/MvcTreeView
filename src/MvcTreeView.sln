@@ -5,6 +5,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{C91D6985
 	ProjectSection(SolutionItems) = preProject
 		..\nuget\MvcTreeView.nuspec = ..\nuget\MvcTreeView.nuspec
 		..\nuget\MvcTreeView.Sample.nuspec = ..\nuget\MvcTreeView.Sample.nuspec
+		..\nuget\PackAndPublish.bat = ..\nuget\PackAndPublish.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcTreeView", "MvcTreeView\MvcTreeView.csproj", "{BDC028BF-59F7-499A-AAB3-7F116C15303E}"
