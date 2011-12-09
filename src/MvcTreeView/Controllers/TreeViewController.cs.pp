@@ -1,12 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using $rootnamespace$.Models;
 
 namespace $rootnamespace$.Controllers
 {
     public class TreeViewController : Controller
     {
         public ActionResult Index()
+        {
+            var locations = GetLocations();
+
+            return View(locations);
+        }
+
+        public static List<TreeViewLocation> GetLocations()
         {
             var locations = new List<TreeViewLocation>
                                 {
@@ -38,8 +44,20 @@ namespace $rootnamespace$.Controllers
                                                 }
                                         }
                                 };
-
-            return View(locations);
+            return locations;
         }
     }
+
+    public class TreeViewLocation
+    {
+        public TreeViewLocation()
+        {
+            ChildLocations = new HashSet<TreeViewLocation>();
+        }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public ICollection<TreeViewLocation> ChildLocations { get; set; }
+    }
+
 }

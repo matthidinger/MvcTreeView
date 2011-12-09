@@ -122,34 +122,6 @@ namespace $rootnamespace$.Helpers
             return this;
         }
 
-
-        public override string ToString()
-        {
-            ValidateSettings();
-
-            var listItems = _items.ToList();
-
-            var ul = new TagBuilder("ul");
-            ul.MergeAttributes(_htmlAttributes);
-
-            if (listItems.Count() == 0)
-            {
-                var li = new TagBuilder("li")
-                                {
-                                    InnerHtml = _emptyContent
-                                };
-                ul.InnerHtml = li.ToString();
-            }
-
-            foreach (var item in listItems)
-            {
-                RenderLi(ul, item);
-                AppendChildren(ul, item, _childrenProperty);
-            }
-
-            return ul.ToString();
-        }
-
         public string ToHtmlString()
         {
             return ToString();
@@ -172,9 +144,36 @@ namespace $rootnamespace$.Helpers
             }
         }
 
-        private void AppendChildren(TagBuilder ul, T parent, Func<T, IEnumerable<T>> childrenProperty)
+
+        public override string ToString()
         {
-            var children = childrenProperty(parent).ToList();
+            ValidateSettings();
+
+            var listItems = _items.ToList();
+
+            var ul = new TagBuilder("ul");
+            ul.MergeAttributes(_htmlAttributes);
+
+            if (listItems.Count == 0)
+            {
+                var li = new TagBuilder("li")
+                {
+                    InnerHtml = _emptyContent
+                };
+                ul.InnerHtml += li.ToString();
+            }
+
+            foreach (var item in listItems)
+            {
+                BuildNestedTag(ul, item, _childrenProperty);
+            }
+
+            return ul.ToString();
+        }
+
+        private void AppendChildren(TagBuilder parentTag, T parentItem, Func<T, IEnumerable<T>> childrenProperty)
+        {
+            var children = childrenProperty(parentItem).ToList();
             if (children.Count() == 0)
             {
                 return;
@@ -183,23 +182,30 @@ namespace $rootnamespace$.Helpers
             var innerUl = new TagBuilder("ul");
             innerUl.MergeAttributes(_childHtmlAttributes);
 
-            foreach (T item in children)
+            foreach (var item in children)
             {
-                RenderLi(innerUl, item);
-                AppendChildren(innerUl, item, childrenProperty);
+                BuildNestedTag(innerUl, item, childrenProperty);
             }
 
-            ul.InnerHtml += innerUl.ToString();
+            parentTag.InnerHtml += innerUl.ToString();
         }
 
-        private void RenderLi(TagBuilder ul, T item)
+        private void BuildNestedTag(TagBuilder parentTag, T parentItem, Func<T, IEnumerable<T>> childrenProperty)
+        {
+            var li = GetLi(parentItem);
+            parentTag.InnerHtml += li.ToString(TagRenderMode.StartTag);
+            AppendChildren(li, parentItem, childrenProperty);
+            parentTag.InnerHtml += li.InnerHtml + li.ToString(TagRenderMode.EndTag);
+        }
+
+        private TagBuilder GetLi(T item)
         {
             var li = new TagBuilder("li")
-                            {
-                                InnerHtml = _itemTemplate(item).ToHtmlString()
-                            };
+                         {
+                             InnerHtml = _itemTemplate(item).ToHtmlString()
+                         };
 
-            ul.InnerHtml += li.ToString();
+            return li;
         }
     }
 }

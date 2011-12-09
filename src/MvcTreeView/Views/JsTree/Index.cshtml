@@ -1,0 +1,41 @@
+﻿@using MvcTreeView.Helpers
+@model List<MvcTreeView.Controllers.TreeViewLocation>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>MVC TreeView</title>
+
+    <script type="text/javascript" src="@Url.Content("~/scripts/jquery-1.7.1.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/jquery.jstree.js")"></script>
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/content/themes/default/style.css")"/>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#t").jstree();
+        });
+    </script>
+</head>
+
+<body>
+
+<h2>TreeView</h2>
+
+<div id="t">
+
+@(Html.TreeView(Model)
+    .EmptyContent("No locations have been defined yet!")
+    .Children(m => m.ChildLocations)
+    .HtmlAttributes(new { id = "tree" })
+    .ChildrenHtmlAttributes(new { @class = "subItem" })
+    .ItemText(m => m.Name)
+    .ItemTemplate(
+        @<text>
+            <a href="#@item.Id">@item.Name</a>
+        </text>)
+)
+</div>
+</body>
+</html>

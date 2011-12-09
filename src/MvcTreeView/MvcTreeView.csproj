@@ -60,23 +60,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Controllers\TreeViewController.cs.pp" />
+    <Compile Include="Controllers\JsTreeController.cs" />
     <Compile Include="Controllers\TreeViewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <None Include="Helpers\TreeView.cs.pp" />
     <Compile Include="Helpers\TreeView.cs" />
-    <None Include="Models\TreeViewLocation.cs.pp" />
-    <Compile Include="Models\TreeViewLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Views\JsTree\Index.cshtml" />
     <None Include="Views\TreeView\Index.cshtml.pp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\themes\apple\bg.jpg" />
+    <Content Include="Content\themes\apple\d.png" />
+    <Content Include="Content\themes\apple\dot_for_ie.gif" />
+    <Content Include="Content\themes\apple\style.css" />
+    <Content Include="Content\themes\apple\throbber.gif" />
+    <Content Include="Content\themes\classic\d.gif" />
+    <Content Include="Content\themes\classic\d.png" />
+    <Content Include="Content\themes\classic\dot_for_ie.gif" />
+    <Content Include="Content\themes\classic\style.css" />
+    <Content Include="Content\themes\classic\throbber.gif" />
+    <Content Include="Content\themes\default-rtl\d.gif" />
+    <Content Include="Content\themes\default-rtl\d.png" />
+    <Content Include="Content\themes\default-rtl\dots.gif" />
+    <Content Include="Content\themes\default-rtl\style.css" />
+    <Content Include="Content\themes\default-rtl\throbber.gif" />
+    <Content Include="Content\themes\default\d.gif" />
+    <Content Include="Content\themes\default\d.png" />
+    <Content Include="Content\themes\default\style.css" />
+    <Content Include="Content\themes\default\throbber.gif" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery.jstree.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
